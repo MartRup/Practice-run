@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="calculator">
-    <input type="text" class="display" id="display" disabled />
-    <input type="text" class="answer-display" id="answerDisplay" disabled />
+    <div id="memoryIndicator" class="memory-indicator"></div>
+    <div id="processDisplay" class="process-display"></div>
+    <input id="display" class="display" type="text" value="0" readonly>
+
+     <div class="memory-btns">
+      <button onclick="memoryAdd()">M+</button>
+      <button onclick="memorySubtract()">M-</button>
+      <button onclick="memoryRecall()">MR</button>
+      <button onclick="memoryClear()">MC</button>
+    </div>
     <div class="keys">
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('+')">+</button>
+      <button onclick="inputNumber('7')">7</button>
+      <button onclick="inputNumber('8')">8</button>
+      <button onclick="inputNumber('9')">9</button>
+      <button class="operator" onclick="setOperation('/')">÷</button>
 
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('-')">-</button>
+      <button onclick="inputNumber('4')">4</button>
+      <button onclick="inputNumber('5')">5</button>
+      <button onclick="inputNumber('6')">6</button>
+      <button class="operator" onclick="setOperation('*')">×</button>
 
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('*')">*</button>
+      <button onclick="inputNumber('1')">1</button>
+      <button onclick="inputNumber('2')">2</button>
+      <button onclick="inputNumber('3')">3</button>
+      <button class="operator" onclick="setOperation('-')">-</button>
 
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button onclick="calculateResult()">=</button>
-      <button onclick="appendValue('/')">/</button>
+      <button onclick="inputNumber('0')">0</button>
+      <button onclick="inputDecimal()">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+      <button class="operator" onclick="setOperation('+')">+</button>
     </div>
-    <div class="clear-btn">
+     <div class="clear-btn">
       <button onclick="clearAll()">C</button>
+      <button onclick="clearCurrentInput()">CE</button>
     </div>
+    
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
